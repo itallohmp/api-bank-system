@@ -1,10 +1,11 @@
-[project]
+[tool.poetry]
 name = "api-bank-system"
 version = "0.1.0"
 description = ""
 authors = [
     {name = "Itallo Polito",email = "itallomp@hotmail.com"}
 ]
+package-mode = false
 requires-python = ">=3.12"
 dependencies = [
     "fastapi (>=0.135.2,<0.136.0)",

@@ -40,7 +40,7 @@ class ServicosTransacoes:
         return TransacaoOut.model_validate(transacao, from_attributes=True)
     
     async def listar_transacao(self, db: AsyncSession, conta_id: int, limit:50, skip: int=0) -> list[TransacaoOut]:
-        q = select(TransacaoDB).where(TransacaoDB.conta_id == conta_id).order_by(TransacaoDB.data.desc()).limit(limit).offset(skip)
+        q = select(TransacaoDB).where(TransacaoDB.conta_id == conta_id).order_by(TransacaoDB.data_criacao.desc()).limit(limit).offset(skip)
         resultado = await db.execute(q)
         transacoes = resultado.scalars().all()
         

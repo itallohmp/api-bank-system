@@ -18,10 +18,40 @@ async def lifespan(app: FastAPI):
     finally:
         await engine.dispose()
             
+tags_metadata = [
+    {
+        'name' : 'Autenticação',
+        'description': 'Rotas reponsáveis por cadastro e login de usuários.'
+    },  
+    {
+        'name' : 'Contas',
+        'description': 'Gerenciamento das contas bancárias do usuário.'
+    },
+    {
+        'name' : 'Transações',
+        'description': 'Operações financeiras como saques e depósitos.'
+    }
+]
             
-app = FastAPI(title='api_bank_system', lifespan=lifespan)
+app = FastAPI(title='API Bank System',
+    version='1.0.0',
+    openapi_tags=tags_metadata,
+    description="""Sistema desenvolvido com FastAPI
+    
+    RECURSOS PRINCIPAIS
+    - AUTENTICAÇÃO JWT
+    - CADASTRO DE USUÁRIOS
+    - CRIAÇÃO DE CONTAS
+    - REGISTRO DE TRANSAÇÕES
+    PROTEÇÃO DE ROTAS POR USUÁRIO AUTENTICADO.""",
+    lifespan=lifespan,
+    contact={
+        'name': 'Itallo Polito',
+        'email': 'itallomp@hotmail.com'
+    })
 
         
+    
 app.include_router(conta.router, tags=['Contas'])
 app.include_router(transacao.router, tags=['Transações'])
 app.include_router(autenticacao.router, tags=['Autenticação'])

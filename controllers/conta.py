@@ -22,6 +22,6 @@ async def criar_conta(conta_in: ContaIn, db: AsyncSession = Depends(get_db), use
 async def listar_contas(limit: int=50, skip: int=0, db: AsyncSession = Depends(get_db)):
     return await servicos_contas.listar_contas(db=db, limit=limit, skip=skip)
 
-@router.get('/{conta_id}/transactions', response_model=list[TransacaoOut])
+@router.get('/{conta_id}/transacoes', response_model=list[TransacaoOut])
 async def listar_transacoes(conta_id: int, limit: int=50, skip: int=0, db: AsyncSession = Depends(get_db)):
     return await tx_servicos.listar_transacao(db=db, conta_id=conta_id, limit=limit, skip=skip)

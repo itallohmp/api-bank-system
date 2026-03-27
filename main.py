@@ -1,6 +1,6 @@
 from contextlib import asynccontextmanager
 
-from alembic.util import status
+from fastapi import status
 from fastapi.responses import JSONResponse # para usar o lifespan startar e down
 from controllers import conta, transacao, autenticacao # para definir eles no router
 from fastapi import FastAPI, Request

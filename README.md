@@ -30,3 +30,5 @@ Lembrando de instalar as dependências corretamente antes de rodar o projeto.
 Durante o desenvolvimento, identifiquei alguns pontos em que adquiri uma melhoria, principalmente na organização das camadas do projeto, na relação entre funções e tabelas e também no aprofundamento do uso do JWT.
 
 Esse projeto foi muito importante para consolidar conceitos e evoluir na prática como desenvolvedor backend.
+
+depoloy do projeto (para teste): https://api-bank-system.onrender.com/docs

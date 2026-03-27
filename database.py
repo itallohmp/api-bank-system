@@ -4,10 +4,10 @@ from config import settings
 
 Base = declarative_base()
 
-DATABASE_URL = settings.database_url # importado do config
+# DATABASE_URL = settings.database_url # importado do config
 
 
-engine = create_async_engine(DATABASE_URL, echo=True, future=True) #echo mostra log do sql
+engine = create_async_engine(settings.database_url, echo=True, future=True) #echo mostra log do sql
 AsyncSessionLocal = sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False,)
 
 async def get_db():
